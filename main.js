@@ -47,6 +47,10 @@ const copyFile = (localBase, catalog, fileName) => {
                     if (err) return console.log(err.message);
                 });
             });
+        } else {
+            fs.link(localBase, path.join(catalog, fileName), err => {
+                if (err) return console.log(err.message);
+            });
         }
     });
 }
